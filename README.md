@@ -1,2 +1,2 @@
 # flutter_todo
-flutterを用いたTODOアプリ
+- flutterの練習用に作成したTODOアプリ

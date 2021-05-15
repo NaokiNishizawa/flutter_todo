@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo/todoDetailsPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,9 +10,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: new ThemeData.dark(),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+        title: 'Flutter Demo',
+        theme: new ThemeData.dark(),
+        home: MyHomePage(title: 'flutter_todo'),
+        routes: <String, WidgetBuilder>{
+          '/home': (BuildContext context) => new MyHomePage(title: 'flutter_todo'),
+          '/detailPage': (BuildContext context) => new TodoDetailsPage()
+        }
     );
   }
 }
@@ -25,35 +30,23 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  void _incrementCounter() {
-    setState(() {
-      // TODO 詳細画面遷移処理
-    });
-    print("onTap floatingActionButton.");
+  void _goTodoDetailsPage() {
+    Navigator.of(context).pushNamed("/detailPage");
   }
 
   @override
   Widget build(BuildContext context) {
-    var list = [
-      "メッセージ",
-      "メッセージ",
-      "メッセージ",
-      "メッセージ",
-      "メッセージ",
-    ];
+    var list = [];
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: ListView.builder(
           itemCount: list.length,
           itemBuilder: (BuildContext context, int index) {
             return _messageItem(list[index]);
           }),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
+        onPressed: _goTodoDetailsPage,
+        tooltip: 'goDetailsPage',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );

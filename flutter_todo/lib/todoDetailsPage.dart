@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TodoDetailsPage extends StatefulWidget {
+  static const id = "todo_details";
+
   @override
   State<StatefulWidget> createState() => _MainState();
 }
@@ -31,6 +33,7 @@ class _MainState extends State<TodoDetailsPage> {
               decoration: const InputDecoration(
                 border: const UnderlineInputBorder(),
                 hintText: "題名",
+                labelText: "題名"
               ),
               onChanged: (value) {
                 setState(() {
@@ -45,6 +48,7 @@ class _MainState extends State<TodoDetailsPage> {
               decoration: const InputDecoration(
                 border: const UnderlineInputBorder(),
                 hintText: "本文",
+                labelText: "本文"
               ),
               onChanged: (value) {
                 setState(() {

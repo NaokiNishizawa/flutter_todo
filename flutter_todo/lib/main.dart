@@ -14,14 +14,15 @@ class MyApp extends StatelessWidget {
         theme: new ThemeData.dark(),
         home: MyHomePage(title: 'flutter_todo'),
         routes: <String, WidgetBuilder>{
-          '/home': (BuildContext context) => new MyHomePage(title: 'flutter_todo'),
-          '/detailPage': (BuildContext context) => new TodoDetailsPage()
+          MyHomePage.id : (BuildContext context) => new MyHomePage(title: 'flutter_todo'),
+          TodoDetailsPage.id :(BuildContext context) => new TodoDetailsPage()
         }
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
+  static const id = "home";
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
 
@@ -31,7 +32,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   void _goTodoDetailsPage() {
-    Navigator.of(context).pushNamed("/detailPage");
+    Navigator.pushNamed(context, TodoDetailsPage.id);
   }
 
   @override
